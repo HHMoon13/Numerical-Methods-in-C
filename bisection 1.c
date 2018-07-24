@@ -136,7 +136,7 @@ input:	printf("Enter x-low, x-high and accepted accuracy separated by space:");
 
 	if(f(xlow)*f(xhi)>0)
 	{
-		printf("Invalid x-low, x-hi");
+		printf("Invalid x-low, x-hi\n\n");
 		goto input;
 	}
 
