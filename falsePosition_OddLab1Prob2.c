@@ -1,8 +1,10 @@
 #include<stdio.h>
 #include<math.h>
+#include<string.h>
 
 const double K = 0.016;
 const int Ca = 42, Cb = 28, Cc = 4;
+//char fileLoc[] = "/home/hhmoon/Desktop/3-2/Numerical/CodePractice/files/";
 
 double f(double x)
 {
@@ -22,7 +24,9 @@ void showValuesInRange(double a,double b, int fileWrite)
     {
         printf("Enter file_1 name: ");
         scanf("%s",filename);
-        fp = fopen(filename,"w+");
+        char fileLoc[] = "/home/hhmoon/Desktop/3-2/Numerical/CodePractice/files/";
+        strcat(fileLoc,filename);
+        fp = fopen(fileLoc,"w+");
 
     }
     printf("	x		f(x)\n\n");
@@ -60,7 +64,9 @@ double falsePosMainProc(double xlow, double xhi, double accr, int fileWrite)
     {
         printf("Enter file_2 name: ");
         scanf("%s",filename);
-        fp = fopen(filename,"w+");
+        char fileLoc[] = "/home/hhmoon/Desktop/3-2/Numerical/CodePractice/files/";
+        strcat(fileLoc,filename);
+        fp = fopen(fileLoc,"w+");
     }
 
 
@@ -123,7 +129,7 @@ double falsePosMainProc(double xlow, double xhi, double accr, int fileWrite)
 
     /// updated oldx is the solution now;
 
-    printf("\nTotal iteartions: %d\nApproximate solution: %.10lf\nRelative Approx. Error: %.10lf\n",iteration,oldx,relErr);
+    printf("\nTotal iteartions: %d\nApproximate solution: %.10lf\nRelative Approx. Error: %.10e\n",iteration,oldx,relErr);
 
     if(fileWrite) fclose(fp);
     return oldx;
@@ -132,7 +138,7 @@ double falsePosMainProc(double xlow, double xhi, double accr, int fileWrite)
 
 int main()
 {
-    //showValuesInRange(0,20,0);  //for part 1;
+    showValuesInRange(0,20,1);  //for part 1;
 
 
     printf("Solving f(x) for n = 0, Guess point xlow = 0, xhi = 20\n");
